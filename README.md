@@ -2,7 +2,7 @@
 
 **People analytics investigation of internship placement data from a multi-campus public community college district, covering Spring 2022 through present (2026).**
 
-Built from operational experience managing a workforce development program across five campuses. Every analytical decision in this project — the outcome classification framework, the structured-program handling, the full-term completion benchmark, the cost modeling, the fiscal-year budget reconstruction, and the deep-dive analyses below — reflects domain knowledge about how the program actually worked, not assumptions from the outside.
+Built from operational experience managing a workforce development program across five campuses. Every analytical decision in this project, the outcome classification framework, the structured-program handling, the full-term completion benchmark, the cost modeling, the fiscal-year budget reconstruction, and the deep-dive analyses below reflects domain knowledge about how the program actually worked, not assumptions from the outside.
 
 ---
 
@@ -14,7 +14,7 @@ This analysis answers eight questions the program's standard reporting could not
 
 1. At what stage do students exit, and how early?
 2. Of students who complete, how many reach the full 9-month placement length versus completing early?
-3. Which employer partners produce the best outcomes — and at what cost?
+3. Which employer partners produce the best outcomes and at what cost?
 4. What does a successful placement actually cost, by employer?
 5. Is placement volume growing, shrinking, or seasonal?
 6. How dependent is the pipeline on a small number of employer-role pairings?
@@ -50,14 +50,14 @@ This analysis answers eight questions the program's standard reporting could not
 **Key findings:**
 
 - **Most attrition is early.** 70.3% of student exits happen within 60 days of placement start, and nearly half (45.7%) happen within just 30 days. This is the highest-leverage window for coordinator intervention.
-- **Completion and full-term retention are different things.** 55.2% of placements end in Planned Completion, but only 14.6% of those completions actually reach the full 9-month mark — the majority of "successful" placements end well before the maximum term.
+- **Completion and full-term retention are different things.** 55.2% of placements end in Planned Completion, but only 14.6% of those completions actually reach the full 9-month mark; the majority of "successful" placements end well before the maximum term.
 - **Employer partner quality and cost are not the same thing.** A partner can have a reasonable completion rate while still costing far more per successful outcome than alternatives. The gap between the most and least efficient partner is roughly 8x ($2,177 vs. $17,461 per completion).
 - **The quality scoring model is statistically validated, not arbitrary.** The Pearson correlation between employer quality score and Planned Completion rate is 0.968 (p < 0.001), and the correlation with Student Exit rate is -0.935 (p < 0.001). This confirms the weighted scoring formula in Part 2 is actually measuring a coherent underlying signal, not producing noise dressed up as a metric.
-- **Campus-level completion rates differ by 15.5 points.** This is a meaningful gap — large enough to justify investigating coordinator practices, local employer relationships, and intake processes at the lower-performing campuses.
+- **Campus-level completion rates differ by 15.5 points.** This is a meaningful gap, large enough to justify investigating coordinator practices, local employer relationships, and intake processes at the lower-performing campuses.
 - **The pipeline is well diversified, not fragile.** A concentration index of 514 (employer-role pairing HHI) indicates the program is not structurally dependent on a small number of partnerships, despite five at-risk partners requiring active management.
-- **A focused segment (Generic County employers) shows a more acute early-attrition pattern than the program overall** — 76.9% of exits at these three related employers happen within 60 days, compared to 70.3% program-wide. The most common reason for exit at the lowest-performing of the high-risk employers was failure to complete the employer's own pre-screen process, not voluntary withdrawal — a distinction with direct implications for whether the intervention belongs at the program level or the employer's intake process.
+- **A focused segment (Generic County employers) shows a more acute early-attrition pattern than the program overall** — 76.9% of exits at these three related employers happen within 60 days, compared to 70.3% program-wide. The most common reason for exit at the lowest-performing of the high-risk employers was failure to complete the employer's own pre-screen process, not voluntary withdrawal, a distinction with direct implications for whether the intervention belongs at the program level or the employer's intake process.
 - **The early-exit prediction model is honestly modest (AUC 0.590).** Campus, employer quality tier, season, and hours-per-week are real but imperfect predictors of early exit, reported here at face value rather than overstated.
-- **Fiscal-year budget requirements declined roughly 21% over five years** — from $1,324,842 in FY2022 to $1,066,188 in FY2026 — tracking with the declining placement volume identified in the term-trend analysis.
+- **Fiscal-year budget requirements declined roughly 21% over five years** from $1,324,842 in FY2022 to $1,066,188 in FY2026 tracking with the declining placement volume identified in the term-trend analysis.
 
 ---
 
@@ -165,7 +165,7 @@ All student identifiers are coded (e.g. `STU0001`). Employer names that would id
 
 ## Privacy and Data Ethics
 
-All student identifiers are anonymized. Campus names are anonymized. The institution is not identified. Employer names identifying the specific county or city have been generalized. The dataset complies with FERPA requirements — no individual student information is recoverable from the published files.
+All student identifiers are anonymized. Campus names are anonymized. The institution is not identified. Employer names identifying the specific county or city have been generalized. The dataset complies with FERPA requirements. No individual student information is recoverable from the published files.
 
 ---
 

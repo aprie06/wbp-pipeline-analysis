@@ -2,7 +2,7 @@
 
 **People analytics investigation of internship placement data from a multi-campus public community college district, covering Spring 2022 through present (2026).**
 
-Built from operational experience managing a workforce development program across five campuses. Every analytical decision in this project — the outcome classification framework, the structured-program handling, the full-term completion benchmark, the cost modeling, and the fiscal-year budget reconstruction — reflects domain knowledge about how the program actually worked, not assumptions from the outside.
+Built from operational experience managing a workforce development program across five campuses. Every analytical decision in this project, the outcome classification framework, the structured-program handling, the full-term completion benchmark, the cost modeling, and the fiscal-year budget reconstruction, reflects domain knowledge about how the program actually worked, not assumptions from the outside.
 
 ---
 
@@ -14,7 +14,7 @@ This analysis answers seven questions the program's standard reporting could not
 
 1. At what stage do students exit, and how early?
 2. Of students who complete, how many reach the full 9-month placement length versus completing early?
-3. Which employer partners produce the best outcomes — and at what cost?
+3. Which employer partners produce the best outcomes and at what cost?
 4. What does a successful placement actually cost, by employer?
 5. Is placement volume growing, shrinking, or seasonal?
 6. How dependent is the pipeline on a small number of employer-role pairings?
@@ -47,12 +47,12 @@ This analysis answers seven questions the program's standard reporting could not
 **Key findings:**
 
 - **Most attrition is early.** 70.3% of student exits happen within 60 days of placement start, and nearly half (45.7%) happen within just 30 days. This is the highest-leverage window for coordinator intervention.
-- **Completion and full-term retention are different things.** 55.2% of placements end in Planned Completion, but only 14.6% of those completions actually reach the full 9-month mark — the majority of "successful" placements end well before the maximum term. Treating these as the same outcome obscures a real distinction between students who finish early (for good reasons, like graduation or being hired) and a program that is genuinely retaining interns long-term.
-- **Employer partner quality and cost are not the same thing.** A partner can have a reasonable completion rate while still costing far more per successful outcome than alternatives — cost-per-completion surfaces this in a way completion rate alone cannot. The gap between the most and least efficient partner is roughly 8x ($2,177 vs. $17,461 per completion).
-- **Campus-level completion rates differ by 15.5 points.** This is a meaningful gap — large enough to justify investigating coordinator practices, local employer relationships, and intake processes at the lower-performing campuses rather than treating it as noise.
+- **Completion and full-term retention are different things.** 55.2% of placements end in Planned Completion, but only 14.6% of those completions actually reach the full 9-month mark; the majority of "successful" placements end well before the maximum term. Treating these as the same outcome obscures a real distinction between students who finish early (for good reasons, like graduation or being hired) and a program that is genuinely retaining interns long-term.
+- **Employer partner quality and cost are not the same thing.** A partner can have a reasonable completion rate while still costing far more per successful outcome than alternatives; cost-per-completion surfaces this in a way completion rate alone cannot. The gap between the most and least efficient partner is roughly 8x ($2,177 vs. $17,461 per completion).
+- **Campus-level completion rates differ by 15.5 points.** This is a meaningful gap large enough to justify investigating coordinator practices, local employer relationships, and intake processes at the lower-performing campuses rather than treating it as noise.
 - **The pipeline is well diversified, not fragile.** A concentration index of 514 (employer-role pairing HHI) indicates the program is not structurally dependent on a small number of partnerships, despite five at-risk partners requiring active management.
-- **The early-exit prediction model is honestly modest (AUC 0.590).** Campus, employer quality tier, season, and hours-per-week are real but imperfect predictors of early exit. This is the expected result for a model built on operational features rather than rich behavioral or survey data — and it is reported here at face value rather than overstated.
-- **Fiscal-year budget requirements declined roughly 21% over five years** — from $1,324,842 in FY2022 to $1,066,188 in FY2026 — tracking with the declining placement volume identified in the term-trend analysis. This reframes a volume trend as a dollar figure a budget officer can act on directly.
+- **The early-exit prediction model is honestly modest (AUC 0.590).** Campus, employer quality tier, season, and hours-per-week are real but imperfect predictors of early exit. This is the expected result for a model built on operational features rather than rich behavioral or survey data and it is reported here at face value rather than overstated.
+- **Fiscal-year budget requirements declined roughly 21% over five years** from $1,324,842 in FY2022 to $1,066,188 in FY2026 tracking with the declining placement volume identified in the term-trend analysis. This reframes a volume trend as a dollar figure a budget officer can act on directly.
 
 ---
 
@@ -140,11 +140,11 @@ python WBP_Synthetic_Data_Generator.py
 
 The dataset used in this analysis is **synthetic, built to mirror the real structure of the program**: real top-7 employer partners (anonymized), real employer-role pairings, real campus volume distribution, and real compensation parameters ($18/hour, 17hr average week, 20hr max, 9-month max placement length, ~6-week structured programs). Outcome probabilities, exit timing, and cost figures are modeled, not copied from real records.
 
-`WBP_Synthetic_Data_Generator.py` documents exactly how every value was constructed — employer quality tiers, campus completion modifiers, role distributions per employer, completion tenure buckets, and the cost model. Nothing in the dataset is a black box; the generation logic is fully inspectable.
+`WBP_Synthetic_Data_Generator.py` documents exactly how every value was constructed employer quality tiers, campus completion modifiers, role distributions per employer, completion tenure buckets, and the cost model. Nothing in the dataset is a black box; the generation logic is fully inspectable.
 
 All student identifiers are coded (e.g. `STU0001`). Employer names that would identify the specific institution, county, or city have been replaced with generic equivalents (e.g. "Generic ISD," "Generic County IT"). National organizations and ambiguous acronyms are retained as-is, since they do not identify the institution. Campus names are anonymized. The institution itself is not identified.
 
-**A note on the fiscal-year budget figures:** the intern wage allocation is exact — every dollar in the dataset's `Total Pay` column is accounted for and the calculation reconciles to the cent. The coordinator overhead ($75,000/year) and admin/misc overhead (8% of wage spend) are explicitly labeled placeholder estimates, not measured figures, and are documented as such directly in the notebook.
+**A note on the fiscal-year budget figures:** the intern wage allocation is exact every dollar in the dataset's `Total Pay` column is accounted for and the calculation reconciles to the cent. The coordinator overhead ($75,000/year) and admin/misc overhead (8% of wage spend) are explicitly labeled placeholder estimates, not measured figures, and are documented as such directly in the notebook.
 
 ---
 
@@ -162,14 +162,14 @@ All student identifiers are coded (e.g. `STU0001`). Employer names that would id
 
 ## Privacy and Data Ethics
 
-All student identifiers are anonymized. Campus names are anonymized. The institution is not identified. Employer names identifying the specific county or city have been generalized. The dataset complies with FERPA requirements — no individual student information is recoverable from the published files.
+All student identifiers are anonymized. Campus names are anonymized. The institution is not identified. Employer names identifying the specific county or city have been generalized. The dataset complies with FERPA requirements, no individual student information is recoverable from the published files.
 
 ---
 
 ## About
 
 Built by **Alexis Prieto**, HR Systems and Automation Analyst, MS Computer Science.
-Part of a people analytics portfolio demonstrating end-to-end workforce data analysis — from a parameterized synthetic data model through predictive modeling to dollar-denominated policy and budget recommendations.
+Part of a people analytics portfolio demonstrating end-to-end workforce data analysis from a parameterized synthetic data model through predictive modeling to dollar-denominated policy and budget recommendations.
 
 [LinkedIn](https://www.linkedin.com/in/alexis-prieto-mscs-shrm-cp-414163157)
 

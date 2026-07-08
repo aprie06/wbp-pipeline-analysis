@@ -1,0 +1,60 @@
+name: Notebook Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install nbformat nbqa flake8
+
+      - name: Validate notebook structure (nbformat)
+        run: |
+          python - <<'EOF'
+          import nbformat
+          import sys
+
+          notebook_path = "WBP_Pipeline_Analysis.ipynb"
+          with open(notebook_path) as f:
+              nb = nbformat.read(f, as_version=4)
+
+          errors = nbformat.validate(nb, relax_add_props=True)
+          if errors:
+              print(f"Notebook validation failed: {errors}")
+              sys.exit(1)
+
+          print(f"Notebook is valid nbformat {nb.nbformat}.{nb.nbformat_minor}")
+          print(f"Total cells: {len(nb.cells)}")
+          code_cells = sum(1 for c in nb.cells if c.cell_type == "code")
+          md_cells = sum(1 for c in nb.cells if c.cell_type == "markdown")
+          print(f"  Code cells: {code_cells}")
+          print(f"  Markdown cells: {md_cells}")
+          EOF
+
+      - name: Lint notebook code cells (nbQA + flake8)
+        run: |
+          nbqa flake8 WBP_Pipeline_Analysis.ipynb \
+            --max-line-length=120 \
+            --extend-ignore=E501,W503,E402,F401
+        continue-on-error: true
+
+      - name: Confirm requirements install cleanly
+        run: |
+          pip check
+          echo "All requirements installed and dependency tree is consistent."
